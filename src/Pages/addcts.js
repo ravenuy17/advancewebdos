@@ -1,12 +1,11 @@
-import React, {useEffect, useState} from "react";
-import sidebar from './sidebar';
-import header from './header';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import Sidebar from './sidebar'
+import Header from './header'
+import axios from 'axios'
 import { baseUrl } from './baseUrl'
-import storage from "./Firebase";
-import news from './news';
-
-function addcts(){
+import storage from "./firebase";
+import Newsandannc from './newsAndAnnouncements'
+function Addcts() {
     const [showDiv, setShowDiv] = useState(false)
 
     const [selectType, setSelectType] = useState(1)
@@ -20,7 +19,7 @@ function addcts(){
     const [language, setLanguage] = useState("")
     const [qualification, setQualification] = useState("")
     const [specialization, setSpecialization] = useState("")
-    const [teachingExperience, setTeachingExperience] = useState("")
+    const [teachingExp, setTeachingExp] = useState("")
     const [courseName, setCourseName] = useState("")
     const [teacherName, setTeacherName] = useState("")
     const [heading, setHeading] = useState("")
@@ -28,31 +27,34 @@ function addcts(){
     const [time, setTime] = useState("")
     const [image, setImage] = useState("")
 
-    const addTeachersData = () =>{
-        if (name !== "" & email !== "" & password !== "" & qualification !== "" & specialization !== "" & teachingExp !== ""){
-            const teacherData = {
-                name: name, 
+    const addTeachersData = () => {
+        if (name !== "" & email !== "" & password !== "" & qualification !== "" & specialization !== "" & teachingExp !== "") {
+            const item = {
+                name: name,
                 email: email,
                 password: password,
                 qualification: qualification,
                 specialization: specialization,
-                teachingExperience: teachingExperience,
-                type: 'teacher',
-                addData: 'admin'
+                teachingExp: teachingExp,
+                type: "teacher",
+                addData: "admin"
+
             }
-            axios.post(baseUrl + 'addStudents',item).then(() => {
-                setName('')
-                setEmail('')
-                setPassword('')
-                setSpecialization('')
-                setQualification('')
-                setTeachingExperience('')
+            axios.post(baseUrl + "addstudents", item).then(() => {
+                setName("")
+                setEmail("")
+                setPassword("")
+                setSpecialization("")
+                setQualification("")
+                setTeachingExp("")
             })
         }
     }
-    const addStudentData = () =>{
+
+
+    const addStudentData = () => {
         if (name !== "" & email !== "" & password !== "" & grade !== "" & areaOfStudy !== "" & skills !== "" & language !== "") {
-            const studentData = {
+            const item = {
                 name: name,
                 email: email,
                 password: password,
@@ -60,46 +62,49 @@ function addcts(){
                 areaOfStudy: areaOfStudy,
                 skills: skills,
                 language: language,
-                type: 'student',
-                addData: 'admin'
-
+                type: "student",
+                addData: "admin"
             }
-            axios.post(baseUrl + 'addStudents', item).then(() =>{
-                setName('')
-                setEmail('')
-                setPassword('')
-                setGrade('')
-                setAreaOfStudy('')
-                setSkills('')
-                setLanguage('')
+            axios.post(baseUrl + "addstudents", item).then(() => {
+                setName("")
+                setEmail("")
+                setPassword("")
+                setGrade("")
+                setAreaOfStudy("")
+                setSkills("")
+                setLanguage("")
             })
         }
     }
 
-    const addCourseData = () =>{
-        if (courseName !==''){
+
+    const addCourseData = () => {
+        if (courseName !== "") {
             const item = {
                 courseName: courseName,
+
             }
-            axios.post(baseUrl + 'addCourse', item).then(() => {
-                setCourseName('');
+            axios.post(baseUrl + "addcourse", item).then(() => {
+                setCourseName("");
+
             })
         }
     }
 
-    const addNewsandAnnualData = () =>{
-        if(heading !== "" & description !== "" & time !== "" & image !== ""){
+
+    const addNewsAndAnnuData = () => {
+        if (heading !== "" & description !== "" & time !== "" & image !== "") {
             const item = {
-                heading: heading, 
+                heading: heading,
                 description: description,
-                time: time, 
+                time: time,
                 image: image,
             }
-            axios.post(baseUrl + 'news', item).then(() =>{
-                setHeading('')
-                setDescription('')
-                setTime('')
-                setImage('')
+            axios.post(baseUrl + "newsandannu", item).then(() => {
+                setHeading("")
+                setDescription("")
+                setTime("")
+                setImage("")
             })
         }
     }

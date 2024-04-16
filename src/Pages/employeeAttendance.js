@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Sidebar from "./Sidebar";
+import Sidebar from "./sidebar";
 import axios from "axios";
 import { baseUrl } from './baseUrl';
-import Header from './Header'
+import Header from './header'
 
 import { useNavigate } from "react-router-dom";
 

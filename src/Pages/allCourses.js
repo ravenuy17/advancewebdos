@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "./Sidebar";
-import Header from "./Header";
+import Sidebar from "./sidebar";
+import Header from "./header";
 import { json, useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from 'axios';
 import { baseUrl } from "./baseUrl";
 
 function Allcourses() {
